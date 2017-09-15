@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <title>Vue Listening to Events</title>
+  <style>
+    #app {
+      margin: 1em;
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <button @click="counter += 1">Add 1</button>
+    <p>The button above has been clicked {{ counter }} times.</p>
+
+  </div>
+
+  <script>
+    var example1 = new Vue({
+      el: '#app',
+      data: {
+        counter: 0
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

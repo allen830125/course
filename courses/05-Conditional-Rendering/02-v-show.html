@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <title>Vue v-show</title>
+  <style>
+    #app div {
+      margin: 1em 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <h1 v-if="cond1">Yes</h1>
+    <h1 v-else>No</h1>
+    <hr>
+    <h1 v-show="cond1">Yes</h1>
+    <h1 v-show="!cond1">No</h1>
+
+  </div>
+
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        cond1: true
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

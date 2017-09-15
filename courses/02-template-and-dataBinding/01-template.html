@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <style>
+    #app {
+      font-size: 2em;
+    }
+    
+    span {
+      color: #f00;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div>msg: <span>{{ msg }}</span></div>
+    <div>msg + ' ' + name: <span>{{ msg + ' ' + name }}</span></div>
+    <hr>
+    <div>count: <span>{{ count }}</span></div>
+    <div>count + 1: <span>{{ count + 1 }}</span></div>
+    <hr>
+    <div>condition: <span>{{ (condition) ? 'Yes' : 'No' }}</span></div>
+    <hr>
+    <div>String reversed for 'Hello 5xRuby!': <span>{{ 'Hello 5xRuby!'.split('').reverse().join('') }}</span></div>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        count: 0,
+        msg: 'Hello!',
+        name: 'Kuro',
+        condition: true
+      }
+    });
+  </script>
+
+</body>
+
+</html>

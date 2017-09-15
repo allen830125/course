@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+  <style>
+    #app,
+    input {
+      font-size: 1.33em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <input type="text" v-model="message">
+
+    <p> Original message: "{{ message }}"</p>
+    <p> Computed reversed message: "{{ reversedMessage }}"</p>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello 5xRuby!'
+      },
+      computed: {
+        // a computed getter
+        reversedMessage: function() {
+          // `this` points to the vm instance
+          return this.message.split('').reverse().join('')
+        }
+      }
+    });
+
+    console.log(vm.reversedMessage);
+
+    // vm.message = 'Goodbye'
+    // console.log(vm.reversedMessage) // -> 'eybdooG'
+  </script>
+
+</body>
+
+</html>

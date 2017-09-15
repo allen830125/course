@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <title>Vue Binding Inline Styles</title>
+  <style>
+    #app {
+      margin: 1em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">Hello</div>
+
+    <hr>
+
+    <div :style="styleObject1">
+      Hello Vue!
+    </div>
+
+    <div :style="[styleObject1, styleObject2]">
+      Hello Vue!
+    </div>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        activeColor: 'red',
+        fontSize: 30,
+        styleObject1: {
+          color: 'green',
+          fontSize: '20px',
+          marginBottom: '10px'
+        },
+        styleObject2: {
+          backgroundColor: 'cyan',
+          lineHeight: '2em'
+        }
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

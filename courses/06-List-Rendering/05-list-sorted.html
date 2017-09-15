@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <title>Vue v-for</title>
+  <style>
+    #app {
+      margin-left: 10px;
+      font-size: 1.2em;
+      margin: 1em;
+    }
+    
+    h3 {
+      padding: 0;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <h1>sorted by age: </h1>
+    <ul>
+      <li v-for="(s, index) in sortedSales">
+        <h3>{{ index }} {{ s.name }}: </h3>
+        <div>age: {{ s.age }}</div>
+        <div>company: {{ s.company }}</div>
+        <div>email: {{ s.email }}</div>
+      </li>
+    </ul>
+
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      computed: {
+        sortedSales() {
+          return this.sales.sort((a, b) => {
+            return a.age - b.age;
+          });
+        }
+      },
+      data: {
+        sales: [{
+          "age": 26,
+          "name": "Sarah Zamora",
+          "company": "ZINCA",
+          "email": "sarah_zamora@zinca.ca"
+        }, {
+          "age": 37,
+          "name": "Cameron Wilder",
+          "company": "NIKUDA",
+          "email": "cameron_wilder@nikuda.biz"
+        }, {
+          "age": 40,
+          "name": "Roach Hubbard",
+          "company": "EMOLTRA",
+          "email": "roach_hubbard@emoltra.me"
+        }, {
+          "age": 38,
+          "name": "Juliet Sykes",
+          "company": "PROWASTE",
+          "email": "juliet_sykes@prowaste.org"
+        }, {
+          "age": 21,
+          "name": "Jerri Jimenez",
+          "company": "ACCUPHARM",
+          "email": "jerri_jimenez@accupharm.tv"
+        }]
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

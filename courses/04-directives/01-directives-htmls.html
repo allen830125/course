@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <style>
+    #app {
+      font-size: 2em;
+    }
+    
+    input {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div>msg: {{ msg }}</div>
+    <hr>
+    <div>rawHTML: {{ rawHTML }}</div>
+    <hr>
+    <div v-html="rawHTML"></div>
+    <hr>
+    <div v-once>msg with v-once: {{ msg }}</div>
+    <hr>
+    <input v-model="msg">
+
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello!',
+        rawHTML: '<h1>Hello!</h1>'
+      },
+    });
+  </script>
+
+
+</body>
+
+</html>

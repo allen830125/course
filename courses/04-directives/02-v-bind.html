@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <style>
+    #app {
+      font-size: 2em;
+    }
+    
+    input,
+    button {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- full syntax -->
+    link1: <a v-bind:href="url" target="_blank">五倍紅寶石</a> <br>
+    <!-- shorthand -->
+    link2: <a :href="url" target="_blank">五倍紅寶石</a>
+    <hr>
+    <!-- src of image -->
+    <img v-bind:src="catImage" alt="cat">
+
+    <hr>
+    <!-- disabled of button -->
+    <button :disabled="btn_disabled">Button</button>
+
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        url: 'https://5xruby.tw',
+        catImage: 'http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg',
+        btn_disabled: true
+      },
+    });
+  </script>
+
+
+</body>
+
+</html>

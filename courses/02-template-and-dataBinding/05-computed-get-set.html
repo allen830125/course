@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <style>
+    #app {
+      font-size: 2em;
+    }
+    
+    input {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <div>firstName: <input v-model="firstName" type="text"></div>
+    <div>lastName: <input v-model="lastName" type="text"></div>
+    <div>fullName: {{ fullName }}</div>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        firstName: '',
+        lastName: ''
+      },
+      computed: {
+        fullName: {
+          get() {
+            return this.firstName + ' ' + this.lastName;
+          },
+          set(newValue) {
+            var names = newValue.split(' ')
+            this.firstName = names[0];
+            this.lastName = names[names.length - 1];
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

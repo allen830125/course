@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <title></title>
+  <style>
+    #app {
+      margin: 1em;
+    }
+    
+    #app,
+    input,
+    select,
+    button {
+      font-size: 1.4em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div>msg: {{ msg }}</div>
+    <input type="text" v-model.lazy="msg">
+
+    <hr>
+
+    <div><input type="text" v-model.number="num1"> + <input type="text" v-model.number="num2"> = {{ sum }}</div>
+
+    <hr>
+
+    <div>msg2: {{ msg2 }}</div>
+    <input type="text" v-model="msg2">
+
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello',
+        msg2: 'Hello',
+        num1: 0,
+        num2: 0
+      },
+      computed: {
+        sum() {
+          return this.num1 + this.num2;
+        }
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

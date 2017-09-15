@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <style>
+    #app {
+      font-size: 2em;
+    }
+    
+    input {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <h1>{{ msg }} => {{ msg | _capitalize }}</h1>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello!'
+      },
+      filters: {
+        _capitalize: function(value) {
+          if (!value) return ''
+          value = value.toString();
+          return value.charAt(0).toUpperCase() + value.slice(1);
+        }
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

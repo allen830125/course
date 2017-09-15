@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <style>
+    #app {
+      font-size: 2em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div>reversedMessage: {{ reversedMessage }}</div>
+    <hr>
+    <div>reversedMessage_method(): {{ reversedMessage_method() }}</div>
+
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello 5xRuby!'
+      },
+      methods: {
+        reversedMessage_method() {
+          console.log('methods');
+          return this.message.split('').reverse().join('');
+        }
+      },
+      computed: {
+        reversedMessage: function() {
+          console.log('computed');
+          return this.message.split('').reverse().join('');
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
